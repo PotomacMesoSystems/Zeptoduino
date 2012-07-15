@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map For LivingColors
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LivingColors	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+init	KEYWORD2
+getMaxNumLamps	KEYWORD2
+getNumLamps	KEYWORD2
+addLamp	KEYWORD2
+getLamp	KEYWORD2
+learnLamps	KEYWORD2
+clearLamps	KEYWORD2
+setLampColourRGB	KEYWORD2
+setLampColourHSV	KEYWORD2
+turnLampOnRGB	KEYWORD2
+turnLampOnHSV	KEYWORD2
+turnLampOff	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
