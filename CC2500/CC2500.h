@@ -27,10 +27,15 @@
 [1]	CC2500 datasheet.  Texas Instruments SWRS040C.
 */
 
+<<<<<<< HEAD
 #ifndef CC2500_H_
 #define CC2500_H_
 
 #include <inttypes.h>
+=======
+#ifndef CC2500_H_INCLUDED
+#define CC2500_H_INCLUDED
+>>>>>>> refactoring.  new driver for BMA180.
 
 // configuration registers, see page 59 of datasheet
 #define CC2500_REG_IOCFG2       0x00    // GDO2 output pin configuration.  See ch. 29 in CC2500 datasheet.
@@ -138,6 +143,7 @@
  * - Errata (swrz002d.pdf)
  * - SPI access (swra112b.pdf)
  */
+<<<<<<< HEAD
 class CC2500xcvr
 {
 private:
@@ -161,6 +167,10 @@ private:
      */
     unsigned char m_pinMISO;
 
+=======
+class CC2500xcvr : public SPIExternalDevice
+{
+>>>>>>> refactoring.  new driver for BMA180.
 public:
 
 	static const unsigned short FIFO_SIZE = 64;
@@ -172,10 +182,16 @@ public:
      * \param[in] pinMOSI Pin number of master output slave input, default is 11 (Arduino standard).
      * \param[in] pinMISO Pin number of master input slave output, default is 12 (Arduino standard).
      */
+<<<<<<< HEAD
     CC2500xcvr(unsigned char pinCS = 10,
            unsigned char pinSCK = 13,
            unsigned char pinMOSI = 11,
            unsigned char pinMISO = 12);
+=======
+	CC2500xcvr(
+		unsigned char pinCS_n, 
+		SPIExternalDevice::SPIClockDiv iSPIClockDiv = SPIExternalDevice::DIV4);
+>>>>>>> refactoring.  new driver for BMA180.
 
     /*!
      * Destructor.
@@ -183,12 +199,15 @@ public:
     ~CC2500xcvr();
 
     /*!
+<<<<<<< HEAD
      * Initializes the CC2500 by setting the pin modes and disabling the device (slave select is
      * set to high). Also sets up the arduino SPI control register (SPCR).
      */
     void init();
 
     /*!
+=======
+>>>>>>> refactoring.  new driver for BMA180.
      * Resets the CC2500 using SPI. Resetting the CC2500 is done by toggling the CS pin in a
      * specific pattern and sending the strobe command SRES.
      *
@@ -196,6 +215,11 @@ public:
      */
     void reset();
 
+<<<<<<< HEAD
+=======
+	void spiTransactionBegin();		// Actions needed for beginning a transaction.  Overrrides parent and calls it internally.
+
+>>>>>>> refactoring.  new driver for BMA180.
     /*!
      * Sends a byte of data to the CC2500 using SPI. The received byte is returned.
      *
@@ -240,6 +264,7 @@ public:
     unsigned char sendBurstCommand(unsigned char command,
                                    unsigned char* data,
                                    unsigned char length);
+<<<<<<< HEAD
 
 protected:
     /*!
@@ -249,6 +274,8 @@ protected:
      * \return Received byte.
      */
     unsigned char spiTransfer(volatile unsigned char data);
+=======
+>>>>>>> refactoring.  new driver for BMA180.
 };
 
 #endif
